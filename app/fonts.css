@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer utilities {
+    .text-moonlight-black {
+        color: #1a1919;
+    }
+    .font-neue{
+        font-family: var(--font-neue);
+    }
+}

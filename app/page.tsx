@@ -1,65 +1,62 @@
 import Image from "next/image";
+import Link from "next/link";
+import { BiUser } from "react-icons/bi";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <header className="flex justify-center border-b border-neutral-300/50 py-4">
+        <nav className="w-full max-w-4xl ">
+          <ul className="flex justify-around items-center uppercase">
+            <li>
+              <Link href={"/products"}>
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href={"/about"}>
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link href={"/contact"}>
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="border border-white rounded-full p-1 hover:bg-white hover:text-black active:bg-white active:text-black">
+          <Link href={"/admin"}>
+            <BiUser className="h-5 w-5" />
+          </Link>
+        </div>
+      </header>
+      <main className="max-w-5xl mx-auto px-6 py-16">
+        <h1 className="text-center text-3xl md:text-5xl font-bold">
+          Welcome to Maa Furniture
+        </h1>
+
+        <div className="mt-12 space-y-4">
+          <h2 className="text-2xl md:text-4xl font-bold">
+            Who We Are
+          </h2>
+
+          <p className="text-gray-300 leading-8">
+            Maa Furniture is a trusted furniture brand based in Barpeta, Assam,
+            dedicated to crafting high-quality furniture for homes, offices, and
+            commercial spaces. We combine skilled craftsmanship with durable materials
+            to create products that are both stylish and long-lasting.
+          </p>
+
+          <p className="text-gray-300 leading-8">
+            Whether you're looking for modern, classic, or custom-made furniture, our
+            goal is to provide comfort, elegance, and value in every piece we create.
+            Customer satisfaction and quality workmanship are at the heart of
+            everything we do.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
       </main>
-    </div>
+    </>
+
   );
 }
