@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { BiUser } from "react-icons/bi";
@@ -56,6 +57,7 @@ export default function Home() {
           </p>
         </div>
       </main>
+      <Footer/>
     </>
 
   );
