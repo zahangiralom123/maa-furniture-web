@@ -4,6 +4,7 @@ import Product from "@/models/Product";
 import { NextResponse } from "next/server";
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
 export async function GET() {
+    await connectDB();
     const products = await Product.find()
         .select("-_id +image.data");
     const formattedProducts = products.map((product) => {
