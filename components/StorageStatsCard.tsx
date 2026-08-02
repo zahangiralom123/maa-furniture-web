@@ -26,7 +26,7 @@ const StorageStatsCard = () => {
             <h3 className="text-lg md:text-xl font-semibold text-white">
                 Storage Overview
             </h3>
-            <p className="mt-1 text-sm text-neutral-400">
+            <p className="mt-1 text-sm">
                 Monitor your image storage usage for product uploads.
             </p>
         </div>
@@ -34,7 +34,7 @@ const StorageStatsCard = () => {
         {/* Progress */}
         <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
-                <span className="text-neutral-400">Storage Used</span>
+                <span>Storage Used</span>
                 <span className="font-semibold text-white">
                     {storage?.usedStorageMB} MB / {storage?.maxStorageMB} MB
                 </span>
@@ -49,7 +49,7 @@ const StorageStatsCard = () => {
                 />
             </div>
 
-            <p className="text-xs text-neutral-500">
+            <p className="text-xs">
                 {(
                     (storage?.usedStorage / storage?.maxStorage) *
                     100
@@ -61,7 +61,7 @@ const StorageStatsCard = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                <p className="text-xs uppercase tracking-wide">
                     Used
                 </p>
                 <p className="mt-1 text-lg font-semibold text-white">
@@ -70,7 +70,7 @@ const StorageStatsCard = () => {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                <p className="text-xs uppercase tracking-wide">
                     Remaining
                 </p>
                 <p className="mt-1 text-lg font-semibold text-green-400">
@@ -79,7 +79,7 @@ const StorageStatsCard = () => {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                <p className="text-xs uppercase tracking-wide">
                     Total Limit
                 </p>
                 <p className="mt-1 text-lg font-semibold text-white">
@@ -88,7 +88,7 @@ const StorageStatsCard = () => {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                <p className="text-xs uppercase tracking-wide">
                     Images
                 </p>
                 <p className="mt-1 text-lg font-semibold text-white">

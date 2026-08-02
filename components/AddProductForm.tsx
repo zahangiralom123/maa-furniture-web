@@ -79,7 +79,8 @@ const AddProductForm = () => {
                             id="productName"
                             type="text"
                             placeholder="Modern Wooden Sofa"
-                            className="w-full rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white"
+                            className="w-full rounded-xl border border-white/20 
+                            bg-transparent px-4 py-3 outline-none focus:border-white placeholder:text-white"
                             {...register("name", {
                                 required: "Product name is required.",
                             })}
@@ -105,7 +106,7 @@ const AddProductForm = () => {
                             placeholder="Describe the Product"
                             rows={4}
                             maxLength={100}
-                            className="w-full resize-none rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white"
+                            className="w-full resize-none rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white placeholder:text-white"
                             {...register("description", {
                                 maxLength: {
                                     value: 100,
@@ -139,7 +140,7 @@ const AddProductForm = () => {
                                 Click to upload
                             </p>
 
-                            <p className="text-sm text-neutral-400">
+                            <p className="text-sm">
                                 JPG, PNG, WEBP • Maximum 5MB
                             </p>
                         </label>
@@ -186,7 +187,8 @@ const AddProductForm = () => {
                             id="productPrice"
                             type="number"
                             placeholder="25000"
-                            className="w-full rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white"
+                            className="w-full rounded-xl border border-white/20 bg-transparent px-4 py-3 
+                            outline-none focus:border-white placeholder:text-white"
                             {...register("price", {
                                 required: "Price is required.",
                                 valueAsNumber: true,
@@ -216,7 +218,7 @@ const AddProductForm = () => {
                             id="stockLeft"
                             type="number"
                             placeholder="10"
-                            className="w-full rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white"
+                            className="w-full rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white placeholder:text-white"
                             {...register("stockLeft", {
                                 required: "Stock is required.",
                                 valueAsNumber: true,
