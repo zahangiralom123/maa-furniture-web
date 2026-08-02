@@ -2,7 +2,7 @@
 import { storageInfo } from "@/types/StorageTypes";
 import { useQuery } from "@tanstack/react-query";
 export const getStorageInfo = async (): Promise<storageInfo> => {
-    const response = await fetch("/api/products/storage");
+    const response = await fetch("/api/products/storage", {method : "GET"});
 
     if (!response.ok) {
         throw new Error("Failed to fetch storage info");
@@ -14,6 +14,7 @@ const StorageStatsCard = () => {
     const { data : storage, isLoading } = useQuery({
         queryKey: ["storage-info"],
         queryFn: getStorageInfo,
+        staleTime : Infinity,
     });
     if (isLoading) return <div>Loading...</div>;
     if(!storage) return;

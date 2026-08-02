@@ -104,9 +104,21 @@ const AddProductForm = () => {
                             id="productDescription"
                             placeholder="Describe the Product"
                             rows={4}
+                            maxLength={100}
                             className="w-full resize-none rounded-xl border border-white/20 bg-transparent px-4 py-3 outline-none focus:border-white"
-                            {...register("description")}
+                            {...register("description", {
+                                maxLength: {
+                                    value: 100,
+                                    message: "Description cannot exceed 100 characters.",
+                                },
+                            })}
                         />
+
+                        {errors.description && (
+                            <p className="mt-1 text-sm text-red-400">
+                                {errors.description.message}
+                            </p>
+                        )}
                     </div>
 
                     <div>

@@ -2,15 +2,22 @@ import { MAX_STORAGE } from "@/constants/max.storage";
 import { connectDB } from "@/lib/db";
 import Product from "@/models/Product";
 import { NextResponse } from "next/server";
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
 export async function GET() {
-    await connectDB();
-    const products = await Product.find();
-    return NextResponse.json(products);
+    const products = await Product.find()
+        .select("-_id +image.data");
+    const formattedProducts = products.map((product) => {
+        const obj = product.toObject();
 
+        return {
+            ...obj,
+            image: `data:${obj.image.contentType};base64,${obj.image.data.toString("base64")}`,
+        };
+    });
+    return NextResponse.json(formattedProducts);
 }
 
 
-const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5 MB
 
 export async function POST(request: Request) {
     try {
@@ -95,8 +102,8 @@ export async function POST(request: Request) {
 
             imageSize: image.size ?? 0,
         });
-      console.log("Actual data saved to mongodb",product);
-      
+        console.log("Actual data saved to mongodb", product);
+
         return NextResponse.json(product, { status: 200 });
     } catch (err) {
         console.error(err);
