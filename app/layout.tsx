@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./fonts.css"
 import { neueFont } from "@/fonts/neue.font";
+import { Toaster } from "sonner";
+import ReactQueryProvider from "@/components/react-query-provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default : "Maa Furniture",
-    template : "%s | Maa Furniture"
+    default: "Maa Furniture",
+    template: "%s | Maa Furniture"
   }
 };
 
@@ -30,7 +32,17 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${neueFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black font-neue">{children}</body>
+      <body className="min-h-full flex flex-col bg-neutral-900 font-neue">
+        <ReactQueryProvider>
+        <Toaster toastOptions={{
+          classNames: {
+            toast: '!bg-white !text-black p-3 rounded-xl font-neue-regular text-xl',
+            description: 'text-sm'
+          }
+        }} />
+        {children}
+      </ReactQueryProvider>
+      </body>
     </html>
   );
 }

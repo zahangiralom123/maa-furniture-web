@@ -22,6 +22,7 @@ export default function Home() {
           alt="Maa Furniture"
           fill
           priority
+          quality={100}
           className="object-cover"
         />
 
